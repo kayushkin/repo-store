@@ -234,7 +234,7 @@ step "REPLACE-semantics pin — a partial upsert body ZEROES the fields it omits
 # Worth knowing before you reach for POST /repos as a patch route: re-upserting
 # with only {name, description} does not merge, it rewrites the row — and `path`
 # comes back empty, which then makes POST /repos/{id}/detect 400 ("repo has no
-# path to detect from"). That is consistent upsert behaviour, not a bug, but it
+# path to detect from"). That is consistent upsert behavior, not a bug, but it
 # is a sharp edge and this pins it so it cannot change silently.
 CODE=$(req POST /repos "{\"name\":\"$NAME\",\"description\":\"partial upsert\"}")
 [ "$CODE" = 200 ] || [ "$CODE" = 201 ] || fail "partial re-POST /repos: expected 200/201, got $CODE"

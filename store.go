@@ -172,7 +172,7 @@ func (s *Store) UpsertRepo(r *Repo) (bool, error) {
 // SetProvenance records who authors the repository. It is the only write path
 // for the column, so the routine tag refresh cannot disturb it. An unknown
 // value is refused rather than stored: a fleet-wide count reads this field to
-// say what population it counted, and a value the reader does not recognise
+// say what population it counted, and a value the reader does not recognize
 // leaves that count unanswerable.
 func (s *Store) SetProvenance(id int64, p Provenance) (*Repo, error) {
 	if !p.IsKnown() {
